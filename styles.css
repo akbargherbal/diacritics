@@ -1,0 +1,60 @@
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.working-area {
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.active {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    background-color: aliceblue;
+
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.char {
+    color: gray;
+}
+
+.hint {
+    color: brown;
+    background-color: antiquewhite;
+    max-width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+p span {
+display: inline-block;
+padding: 4px 8px;
+}
+
+.selected-word {
+    color: red;
+    border-style: dotted none;
+    border-color: cadetblue;
+    background-color: beige;
+
+}
+
+.word-preview {
+    margin: auto;
+    width: fit-content;
+    font-size: 6rem;
+}

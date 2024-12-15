@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keystroke Counter</title>
+    <!-- Alpine.js from CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Our custom files -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container" dir="rtl">
+      <div
+        class="working-area"
+        x-data="working_area"
+        @click="activateWorkingArea()"
+        @click.outside="dectivateWorkingArea()"
+        :class="{'active': cssWorkingArea}"
+        tabindex="0"
+        @keyup="handleKeyUp($event)"
+      >
+        <div class="sentence">
+          <p>
+            <template x-for="(word, index) in sentArray">
+              <span
+                x-text="word"
+                :key="index"
+                @click="clickedWord(index)"
+                :class="{ 'selected-word': isSelected(index)}"
+              ></span>
+            </template>
+          </p>
+        </div>
+
+        <div class="stats">
+          <div><p><span>الكلمة رقم: </span><span x-text="wordIndex"></span></p></div>
+          <div class="word-preview">
+            <template x-for="char in selectedWord">
+              <span x-text="char"></span>
+            </template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
