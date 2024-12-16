@@ -26,24 +26,32 @@
       >
         <div class="sentence">
           <p>
-            <template x-for="(word, index) in sentArray">
+            <template x-for="(word, index) in sentArray" :key="index">
               <span
                 x-text="word"
-                :key="index"
                 @click="clickedWord(index)"
-                :class="{ 'selected-word': isSelected(index)}"
+                :class="{ 'selected-word': getActiveWordIndex(index)}"
+                :id="`w-${index}`"
               ></span>
             </template>
           </p>
         </div>
 
         <div class="stats">
-          <div><p><span>الكلمة رقم: </span><span x-text="wordIndex"></span></p></div>
+          <div>
+            <p><span>الكلمة رقم: </span><span x-text="wordIndex"></span></p>
+          </div>
           <div class="word-preview">
-            <template x-for="char in selectedWord">
-              <span x-text="char"></span>
+            <template x-for="(char, idx) in selectedWord" :key="idx">
+              <span
+                x-text="char"
+                :id="`w-${wordIndex}_ch-${idx}`"
+                @click="logCharacterId($el, wordIndex, idx)"
+              ></span>
             </template>
-
+          </div>
+          <div class="current-character">
+            <p x-text="currentChar" class="char-preview"></p>
           </div>
         </div>
       </div>

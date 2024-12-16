@@ -58,3 +58,9 @@ padding: 4px 8px;
     width: fit-content;
     font-size: 6rem;
 }
+
+.char-preview {
+    margin: auto;
+    width: fit-content;
+    font-size: 2rem;
+}
